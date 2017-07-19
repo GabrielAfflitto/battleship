@@ -1,11 +1,22 @@
 require 'pry'
 require 'minitest/autorun'
 require 'minitest/pride'
-require '.lib/battleship'
+require './lib/battleship'
 
 
 
 class BattleshipTest < Minitest::Test
 
+  def test_it_exists
+    ship = Battleship.new
+
+    assert_instance_of Battleship, ship
+  end
+
+  def test_it_puts_message
+    ship = Battleship.new
+
+    assert_equal "Welcome to Battleship", options
+  end
 
 end

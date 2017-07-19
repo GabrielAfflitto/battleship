@@ -1,14 +1,12 @@
 class Player
-  attr_reader :name,
-              :guess
+  attr_reader :guess
 
-  def initialize(name, victorious)
-    @name = name
+  def initialize
     @victorious = false
     @guess = guess
   end
 
-
+  
 
 
 end
