@@ -1,4 +1,5 @@
 require 'pry'
+require './lib/board'
 
 class Board
   attr_reader :grid
@@ -16,6 +17,5 @@ class Board
     create_board[y] = true
   end
 
-  
 
 end

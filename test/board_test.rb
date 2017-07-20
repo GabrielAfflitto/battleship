@@ -12,6 +12,10 @@ class BoardTest < Minitest::Test
   end
 
 
+  def set_board
+    board = Board.new
 
+    assert_equal 
+  end
 
 end

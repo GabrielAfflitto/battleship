@@ -19,4 +19,10 @@ class BattleshipTest < Minitest::Test
     assert_equal "Welcome to Battleship", options
   end
 
+  def test_it_places_ship
+    ship = Ship.new(place_ship)
+
+    assert_equal true, place_ship.grid
+  end
+
 end
