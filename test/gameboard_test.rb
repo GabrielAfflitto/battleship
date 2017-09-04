@@ -19,7 +19,7 @@ class GameBoardTest < Minitest::Test
 
   def test_for_hash_containing_keys_as_true
     board = GameBoard.new
-    expected = [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
+    expected = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 
     assert_equal expected, board.grid.values
   end
