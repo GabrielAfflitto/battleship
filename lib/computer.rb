@@ -1,8 +1,9 @@
 require './lib/gameboard'
 require './lib/ship_coordinates'
+require 'pry'
 class Computer
   include ShipCoordinates
-  attr_reader :gameboard, :long, :short
+  attr_accessor :gameboard, :long, :short
 
   def initialize
     @gameboard = GameBoard.new
@@ -26,8 +27,20 @@ class Computer
   end
 
   def create_ships
-    @long << three_space_ship.flatten
-    @short << two_space_ship.flatten
+    @long << three_space_ship
+    @short << two_space_ship
+  end
+
+  def ship_comparison
+    @long.flatten.zip(@short.flatten).collect do |x, y|
+      x != y
+    end
+  end
+
+  def ships_cannot_overlap
+    until ship_comparison == [true, true, true]
+      three_space_ship
+    end
   end
 
 end

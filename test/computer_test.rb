@@ -51,4 +51,13 @@ class ComputerTest < Minitest::Test
     refute comp.short.empty?
   end
 
+  def test_that_the_two_arrays_can_be_compared
+    comp = Computer.new
+    comp.create_ships
+
+    assert_equal [true, true, true], comp.ship_comparison
+  end
+
+  
+
 end
