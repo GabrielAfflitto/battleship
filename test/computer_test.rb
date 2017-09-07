@@ -44,7 +44,8 @@ class ComputerTest < Minitest::Test
 
   def test_that_new_arrays_contain_coordinates
     comp = Computer.new
-    comp.create_ships
+    comp.create_short_ship
+    comp.create_long_ship
 
     refute comp.long_ship.empty?
     refute comp.short_ship.empty?
@@ -52,17 +53,19 @@ class ComputerTest < Minitest::Test
 
   def test_that_the_two_arrays_can_be_compared
     comp = Computer.new
-    comp.create_ships
+    comp.create_short_ship
+    comp.create_long_ship
 
     assert_equal [true, true, true], comp.ship_comparison
   end
 
-  def test_that_ships_are_placed
-    comp = Computer.new
-    comp.place_ships
-
-    
-  end
+  # def test_that_ships_are_placed
+  #   comp = Computer.new
+  #   comp.place_short_ship
+  #   comp.place_long_ship
+  #
+  #   assert_equal [".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."], comp.gameboard.grid.values
+  # end
 
 
 end

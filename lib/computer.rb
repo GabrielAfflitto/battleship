@@ -11,6 +11,13 @@ class Computer
     @short_ship = []
   end
 
+  def computer_place_ships
+    create_short_ship
+    create_long_ship
+    place_short_ship
+    place_long_ship
+  end
+
   def ship_one
     coord_1 = first_space.sample
     @short_ship << coord_1
@@ -28,12 +35,14 @@ class Computer
     @long_ship << coord_3
   end
 
-  def create_ships
-    @long_ship << ship_two
+  def create_short_ship
     @short_ship << ship_one
-    @long_ship.pop
     @short_ship.pop
+  end
 
+  def create_long_ship
+    @long_ship << ship_two
+    @long_ship.pop
   end
 
   def ship_comparison
@@ -48,10 +57,15 @@ class Computer
     end
   end
 
-  def place_ships
-    @short_ship.each do |coord|
+  def place_short_ship
+    create_short_ship.map do |coord|
       @gameboard.grid[coord] = "x"
-      binding.pry
+    end
+  end
+
+  def place_long_ship
+    create_long_ship.map do |coord|
+      @gameboard.grid[coord] = "x"
     end
   end
 
