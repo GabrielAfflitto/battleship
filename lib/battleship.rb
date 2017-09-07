@@ -2,7 +2,10 @@ require './lib/gameboard'
 require './lib/computer'
 
 class Battleship
-
+  attr_reader :gameboard
+  def initialize
+    @gameboard = GameBoard.new
+  end
   def start
     puts "Welcome to BATTLESHIP"
     menu

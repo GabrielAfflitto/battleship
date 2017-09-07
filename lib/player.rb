@@ -7,6 +7,10 @@ class Player
   attr_reader :gameboard
 
   def initialize
-    @gameboard = Gameboard.new
+    @gameboard = GameBoard.new
+  end
+
+  def place_ships
+    input = gets.chomp
   end
 end

@@ -16,6 +16,6 @@ class PlayerTest < Minitest::Test
   def test_gameboard_class_exists_within_player
     player = Player.new
 
-    assert_instance_of Gameboard, player.gameboard
+    assert_instance_of GameBoard, player.gameboard
   end
 end
