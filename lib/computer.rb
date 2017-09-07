@@ -3,43 +3,55 @@ require './lib/ship_coordinates'
 require 'pry'
 class Computer
   include ShipCoordinates
-  attr_accessor :gameboard, :long, :short
+  attr_accessor :gameboard, :long_ship, :short_ship
 
   def initialize
     @gameboard = GameBoard.new
-    @long = []
-    @short = []
+    @long_ship = []
+    @short_ship = []
   end
 
-  def first_position
-    first_space.sample
+  def ship_one
+    coord_1 = first_space.sample
+    @short_ship << coord_1
+    coord_2 = second_coordinate[coord_1].sample
+    @short_ship << coord_2
+
   end
 
-  def two_space_ship
-    first = first_position
-    second = second_coordinate[first].sample
-    [first, second]
-  end
-
-  def three_space_ship
-    small_ship = two_space_ship
-    small_ship << third_coordinate[small_ship].sample
+  def ship_two
+    coord_1 = first_space.sample
+    @long_ship << coord_1
+    coord_2 = second_coordinate[coord_1].sample
+    @long_ship << coord_2
+    coord_3 = third_coordinate[long_ship].sample
+    @long_ship << coord_3
   end
 
   def create_ships
-    @long << three_space_ship
-    @short << two_space_ship
+    @long_ship << ship_two
+    @short_ship << ship_one
+    @long_ship.pop
+    @short_ship.pop
+
   end
 
   def ship_comparison
-    @long.flatten.zip(@short.flatten).collect do |x, y|
+    @long_ship.zip(@short_ship).collect do |x, y|
       x != y
     end
   end
 
   def ships_cannot_overlap
     until ship_comparison == [true, true, true]
-      three_space_ship
+      ship_two
+    end
+  end
+
+  def place_ships
+    @short_ship.each do |coord|
+      @gameboard.grid[coord] = "x"
+      binding.pry
     end
   end
 
