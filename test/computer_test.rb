@@ -58,14 +58,4 @@ class ComputerTest < Minitest::Test
 
     assert_equal [true, true, true], comp.ship_comparison
   end
-
-  # def test_that_ships_are_placed
-  #   comp = Computer.new
-  #   comp.place_short_ship
-  #   comp.place_long_ship
-  #
-  #   assert_equal [".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."], comp.gameboard.grid.values
-  # end
-
-
 end

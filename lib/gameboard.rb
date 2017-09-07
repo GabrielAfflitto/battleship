@@ -1,5 +1,4 @@
 require 'pry'
-require './lib/ship'
 require './lib/ship_coordinates'
 
 class GameBoard
